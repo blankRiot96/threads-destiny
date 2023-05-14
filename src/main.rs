@@ -90,7 +90,7 @@ fn main() {
             }
 
             let coord = Vector2::new(coord_x, coord_y);
-            let radius = rand::thread_rng().gen_range(2..=5) as f32;
+            let radius = rand::thread_rng().gen_range(10..=50) as f32;
             let angle = rand::thread_rng().gen_range(0..=360) as f32;
             squares.push((coord, radius, angle));
         }
@@ -106,7 +106,7 @@ fn main() {
         // Draw squares
         for square in &mut squares {
             d.draw_rectangle_v(
-                square.0,
+                square.0 - camera,
                 Vector2::new(square.1, square.1),
                 Color::YELLOWGREEN,
             )
